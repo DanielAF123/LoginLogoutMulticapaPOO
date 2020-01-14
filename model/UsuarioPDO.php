@@ -8,9 +8,8 @@
 class UsuarioPDO implements UsuarioDB{
     
     public function validarUsuario($codUsuario, $password) {
-        $usuario=new Usuario($codUsuario, $descUsuario, $password, $perfil, $ultimaConexion, $contadorAccesos);
-        
-        
+        Usuario::validarUsuario($codUsuario, $password);
+     return "Select * FROM Usuario WHERE Password=:contra".["codUsuario"=>$codUsuario,"password"=>$password];   
     }
 
 }
