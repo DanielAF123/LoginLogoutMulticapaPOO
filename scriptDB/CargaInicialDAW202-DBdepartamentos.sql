@@ -4,7 +4,7 @@
  */
 -- La contraseña de los usuarios, es el codUsuario concatenado con el password, en este caso paso. [$usuario . $pass]
 -- Base de datos a usar
-USE DAW202LoginLogoutMulticapaPOO;
+USE DAW202LoginLogoutPOO;
 
 -- Introduccion de datos dentro de la tabla creada
 INSERT INTO T02_Departamento(T02_CodDepartamento,T02_DescDepartamento,T02_FechaCreacionDepartamento, T02_VolumenNegocio) VALUES

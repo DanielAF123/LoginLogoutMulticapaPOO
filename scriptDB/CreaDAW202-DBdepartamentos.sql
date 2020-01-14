@@ -6,9 +6,9 @@
 -- ProyectoTema5 || LoginLogoffTema5 || MtoDepartamentosPDOTema5 --
 
 -- Crear base de datos --
-    CREATE DATABASE if NOT EXISTS DAW202LoginLogoutMulticapaPOO;
+    CREATE DATABASE if NOT EXISTS DAW202LoginLogoutPOO;
 -- Uso de la base de datos. --
-    USE DAW202LoginLogoutMulticapaPOO;
+    USE DAW202LoginLogoutPOO;
 
 -- Crear tablas. --
     CREATE TABLE IF NOT EXISTS T02_Departamento(
@@ -25,14 +25,14 @@
         T01_Password varchar(64) NOT null,
         T01_NumAcessos INTEGER(10) default 0,
         T01_Perfil enum('administrador', 'usuario') default 'usuario', -- Valor por defecto usuario
-        T01_FechaHoraUltimaConexion timestamp, --Revisar o cambiar a int--
+        T01_FechaHoraUltimaConexion timestamp --Revisar o cambiar a int--
     );
 
 -- Crear del usuario --
-    CREATE USER IF NOT EXISTS 'usuarioDAW202LoginLogoutMulticapaPOO'@'%' identified BY 'paso'; 
+    CREATE USER IF NOT EXISTS 'usuarioDAW202LoginLogoutPOO'@'%' identified BY 'paso'; 
 
 -- Dar permisos al usuario --
-    GRANT ALL PRIVILEGES ON DAW202LoginLogoutMulticapaPOO.* TO 'usuarioDAW202LoginLogoutMulticapaPOO'@'%'; 
+    GRANT ALL PRIVILEGES ON DAW202LoginLogoutPOO.* TO 'usuarioDAW202LoginLogoutPOO'@'%'; 
 
 -- Hacer el flush privileges, por si acaso --
     FLUSH PRIVILEGES;

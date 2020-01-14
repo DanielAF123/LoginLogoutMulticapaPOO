@@ -4,7 +4,7 @@
  */
 
 -- Borrar base de datos con drop--
-DROP DATABASE DAW202LoginLogoutMulticapaPOO;
+DROP DATABASE DAW202LoginLogoutPOO;
 
 -- Borrar usuario asociado a esa base de datos
-DROP USER usuarioDAW202LoginLogoutMulticapaPOO;
+DROP USER usuarioDAW202LoginLogoutPOO;
