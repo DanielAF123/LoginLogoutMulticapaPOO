@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+include 'UsuarioPDO.php';
 class Usuario{
     private $codUsuario;
     private $descUsuario;
@@ -23,6 +23,10 @@ class Usuario{
         $this->contadorAccesos=$contadorAccesos;
     }
     public static function validarUsuario($codUsuario,$password){
-        UsuarioPDO::validarUsuario($codUsuario,$password);
+        if(UsuarioPDO::validarUsuario($codUsuario,$password)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
