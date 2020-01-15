@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include '../config/ConfDB.php';
+include 'config/ConfDB.php';
 class DBPDO{
     public static function ejecutaConsulta($sql,$parametros){
         try{

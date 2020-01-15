@@ -5,22 +5,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include '../config/ConfAplicación.php';
+include 'config/ConfAplicación.php';
 include 'DBPDO.php';
 class UsuarioPDO{
     
     public function validarUsuario($codUsuario, $password) {
-        $resultado=DBPDO::ejecutaConsulta("Select * FROM Usuario WHERE Password=?",[$password]);
+        $resultado=DBPDO::ejecutaConsulta("Select * FROM T01_Usuario WHERE T01_Password=?",[$password]);
         if($resultado->rowCount()==1){
             $usuario=$resultado->fetchObject();
             session_start();
-            $_SESSION[USUARIOA]=new Usuario($usuario->codUsuario, $usuario->descUsuario, $usuario->password, $usuario->perfil, $usuario->ultimaConexion, $usuario->contadorAccesos);
-            $sql="UPDATE Usuario SET FechaHoraUltimaConexion=?,NumConexiones=? WHERE CodUsuario=?";
-            $parametros=[$usuario->ultimaConexion,$usuario->contadorAccesos,$usuario->codUsuario];
-            DBPDO::ejecutaConsulta($sql, $parametros);
-            if(!isset($_COOKIE['idioma'])){
-                setcookie('idioma', "español", time()+120);
-            }
+            $usuarioS=new Usuario($usuario->T01_CodUsuario, $usuario->T01_DescUsuario, $usuario->T01_Password, $usuario->T01_Perfil, $usuario->T01_FechaHoraUltimaConexion, $usuario->T01_NumAccesos);
+            $_SESSION[USUARIOA]=$usuarioS;
             return true;
         }else{
             return false;

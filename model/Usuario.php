@@ -29,4 +29,53 @@ class Usuario{
             return false;
         }
     }
+    function getCodUsuario() {
+        return $this->codUsuario;
+    }
+
+    function getDescUsuario() {
+        return $this->descUsuario;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function getPerfil() {
+        return $this->perfil;
+    }
+
+    function getUltimaConexion() {
+        return $this->ultimaConexion;
+    }
+
+    function getContadorAccesos() {
+        return $this->contadorAccesos;
+    }
+
+    function setCodUsuario($codUsuario) {
+        $this->codUsuario = $codUsuario;
+    }
+
+    function setDescUsuario($descUsuario) {
+        $this->descUsuario = $descUsuario;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setPerfil($perfil) {
+        $this->perfil = $perfil;
+    }
+
+    function setUltimaConexion($ultimaConexion) {
+        $this->ultimaConexion = $ultimaConexion;
+    }
+
+    function setContadorAccesos($contadorAccesos) {
+        $this->contadorAccesos = $contadorAccesos;
+    }
+
+
 }
