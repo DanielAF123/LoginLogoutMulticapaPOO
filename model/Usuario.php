@@ -23,11 +23,8 @@ class Usuario{
         $this->contadorAccesos=$contadorAccesos;
     }
     public static function validarUsuario($codUsuario,$password){
-        if(UsuarioPDO::validarUsuario($codUsuario,$password)){
-            return true;
-        }else{
-            return false;
-        }
+        $usuario=UsuarioPDO::validarUsuario($codUsuario,$password);
+        return $usuario;
     }
     function getCodUsuario() {
         return $this->codUsuario;

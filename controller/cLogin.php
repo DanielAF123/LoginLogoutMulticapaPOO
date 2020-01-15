@@ -7,10 +7,17 @@
  */
     include './model/Usuario.php';
     include './config/ConfAplicación.php';
-    if(Usuario::validarUsuario($_REQUEST["codUsuario"], $_REQUEST["password"])){
-        //header("Location: Layout.php");
+    $contraseña= hash("sha256",$_REQUEST["codUsuario"].$_REQUEST["password"]);
+    $usuario=Usuario::validarUsuario($_REQUEST["codUsuario"], $contraseña);
+    if(is_object($usuario)){
+        session_start();
+        var_dump($usuario);
+        $usuarioS=serialize($usuario);
+        $_SESSION[USUARIOA]=$usuarioS;
+        $_SESSION["pagina"]="inicio";
+        header("Location: Layout.php");
     }else{
-        //header("Location: Layout.php");
+        header("Location: Layout.php");
     }
 
 
