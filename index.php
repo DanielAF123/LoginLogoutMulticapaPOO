@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 include_once './config/ConfAplicación.php';
+include_once './model/Usuario.php';
+include_once './config/ConfDB.php';
 if(isset($_SESSION[USUARIOA]) && $_SESSION["pagina"]==inicio){
     include_once './controller/cInicio.php';
 }
