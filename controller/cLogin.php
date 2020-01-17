@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,10 +12,10 @@ if(isset($_SESSION[USUARIOA])){
 }
 if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
     $contraseña= hash("sha256",$_REQUEST["codUsuario"].$_REQUEST["password"]);
-    $usuario=Usuario::validarUsuario($_REQUEST["codUsuario"], $contraseña);
+    $usuario= UsuarioPDO::validarUsuario($_REQUEST["codUsuario"], $contraseña);
     if(is_object($usuario)){
-        var_dump($usuario);
-        $usuarioS=serialize($usuario);
+        $_SESSION["TIPO"]= gettype($usuario);
+        $usuarioS=$usuario;
         $_SESSION[USUARIOA]=$usuarioS;
         $_SESSION["pagina"]="inicio";
         header("Location: ./view/Layout.php");

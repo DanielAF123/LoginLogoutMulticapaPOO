@@ -1,5 +1,5 @@
 <?php
-include_once '../model/Usuario.php';
+session_start();
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,7 +17,7 @@ include_once '../model/Usuario.php';
 <!--<a href="editarPerfil.php"><button>Editar perfil</button></a>-->
 <a href="Layout.php?cerrar=cerrar"><button>Salir</button></a><br>
 <?php
-$usuario=unserialize($_SESSION[USUARIOA]);
+
     echo "Descripción usuario ".$usuario->getCodUsuario()."<br>";
     echo "Descripción usuario ".$usuario->getDescUsuario()."<br>";
     echo "Fecha ultima conexión ".$usuario->getUltimaConexion()."<br>";
@@ -26,6 +26,6 @@ $usuario=unserialize($_SESSION[USUARIOA]);
     }else{
         echo "Numero de conexiones ".$usuario->getContadorAccesos()."<br>";
     }
-    echo '';
+    
 
 
