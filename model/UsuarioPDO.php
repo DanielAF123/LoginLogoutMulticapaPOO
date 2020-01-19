@@ -14,7 +14,7 @@ class UsuarioPDO{
             $usuario=$resultado->fetchObject();
             $fechaActual=new DateTime();
             $valor=$fechaActual->format('Y-m-d H:i:s');
-            DBPDO::ejecutaConsulta("UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion=:?,T01_NumAccesos=? WHERE T01_CodUsuario=?", [$valor,$usuario->T01_NumAccesos+1,$usuario->T01_CodUsuario]);
+            DBPDO::ejecutaConsulta("UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion=?,T01_NumAccesos=? WHERE T01_CodUsuario=?", [$valor,$usuario->T01_NumAccesos+1,$usuario->T01_CodUsuario]);
             $usuarioS=new Usuario($usuario->T01_CodUsuario, $usuario->T01_DescUsuario, $usuario->T01_Password, $usuario->T01_Perfil, $usuario->T01_FechaHoraUltimaConexion, $usuario->T01_NumAccesos);
             return $usuarioS;
         }else{

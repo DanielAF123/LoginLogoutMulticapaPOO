@@ -17,10 +17,7 @@ class DBPDO{
         }
     try{
         $consulta=$miDB->prepare($sql);
-        foreach ($parametros as $key => $value) {
-        $consulta->bindValue($key+1, $value);
-        }
-        $consulta->execute();
+        $consulta->execute($parametros);
     } catch (PDOException $exp) {
         echo $exp->getMessage();
         echo $exp->getCode();
