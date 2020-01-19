@@ -1,5 +1,4 @@
 <?php
-session_start();
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,15 +16,10 @@ session_start();
 <!--<a href="editarPerfil.php"><button>Editar perfil</button></a>-->
 <a href="Layout.php?cerrar=cerrar"><button>Salir</button></a><br>
 <?php
-
-    echo "Descripción usuario ".$usuario->getCodUsuario()."<br>";
-    echo "Descripción usuario ".$usuario->getDescUsuario()."<br>";
-    echo "Fecha ultima conexión ".$usuario->getUltimaConexion()."<br>";
-    if($usuario->getContadorAccesos()==1){
-        echo "Primera conexion"."<br>";
-    }else{
-        echo "Numero de conexiones ".$usuario->getContadorAccesos()."<br>";
-    }
+    echo "Descripción usuario ".$_SESSION['datos'][0]."<br>";
+    echo "Descripción usuario ".$_SESSION['datos'][1]."<br>";
+    echo "Fecha ultima conexión ".$_SESSION['datos'][2]."<br>";
+        echo "Numero de conexiones ".$_SESSION['datos'][3]."<br>";
     
 
 

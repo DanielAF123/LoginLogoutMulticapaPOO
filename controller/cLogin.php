@@ -18,6 +18,12 @@ if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
         $usuarioS=$usuario;
         $_SESSION[USUARIOA]=$usuarioS;
         $_SESSION["pagina"]="inicio";
+        if($usuario->getContadorAccesos()==1){
+        $contador="Primera conexion"."<br>";
+        }else{
+        $contador=$usuario->getContadorAccesos();
+        }
+        $_SESSION["datos"]=[$usuario->getCodUsuario(),$usuario->getDescUsuario(),$usuario->getUltimaConexion(),$contador];
         header("Location: ./view/Layout.php");
     }else{
         header("Location: ./view/Layout.php");

@@ -1,3 +1,4 @@
+<div id="formulario">
 <form name="formulario" action="../index.php" method="POST" enctype="multipart/form-data">
         <label for="usuario">Usuario</label>
         <input type="text" name="codUsuario" id="usuario"><br>
@@ -7,3 +8,4 @@
     </form>
 <a href="registro.php"><button>Registrate</button></a>
 <a href="../../index.html"><button>Salir</button></a><br>
+</div>
