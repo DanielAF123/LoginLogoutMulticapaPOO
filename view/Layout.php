@@ -11,10 +11,16 @@ session_start();
         <?php
         include_once '../config/ConfAplicación.php';
         include_once '../model/Usuario.php';
-        if(isset($_SESSION[USUARIOA]) && $_SESSION["pagina"]=="inicio"){
-            include_once './vInicio.php';
+        if(isset($_SESSION[USUARIOA])){
+            if($_SESSION["pagina"]=="inicio"){
+                include_once './vInicio.php';
+            }
         }else{
+            if(isset($_REQUEST["pagina"]) && $_REQUEST["pagina"]=="registro"){
+                include_once './vRegistro.php';
+            }else{
         include_once './vlogin.php';
+            }
         }
     ?>
     </body>

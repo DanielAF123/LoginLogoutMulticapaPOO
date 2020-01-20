@@ -6,6 +6,6 @@
         <input type="password" name="password" id="contrasena">
         <input type="submit" value="Aceptar" name="Aceptar">
     </form>
-<a href="registro.php"><button>Registrate</button></a>
-<a href="../../index.html"><button>Salir</button></a><br>
+    <a href="Layout.php?pagina=registro"><button>Registrate</button></a>
+    <a href="../../index.html"><button>Salir</button></a><br>
 </div>
