@@ -9,10 +9,15 @@ include_once './config/ConfAplicación.php';
 include_once './model/Usuario.php';
 include_once './model/UsuarioPDO.php';
 include_once './config/ConfDB.php';
-if(isset($_SESSION[USUARIOA]) && $_SESSION["pagina"]==inicio){
+include_once './core/validacionFormularios.php';
+if(isset($_SESSION[USUARIOA])){
+if($_SESSION["pagina"]==inicio){
     include_once './controller/cInicio.php';
 }
-if(!isset($_SESSION[USUARIOA])){
+}else{
+    if($_SESSION["pagina"]=="registro"){
+        include_once './controller/cRegistro.php';
+    }
     include_once './controller/cLogin.php';
 }
 

@@ -5,16 +5,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-    
 if(isset($_SESSION[USUARIOA])){
     $_SESSION["pagina"]="inicio";
     header('Location: ./view/Layout.php');
 }
-
-if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
     $entrada=true;
     $aErrores=[];
     $aErrores['codUsuario']= validacionFormularios::comprobarNoVacio($_REQUEST['codUsuario']);
+    $aErrores['desc']= validacionFormularios::comprobarNoVacio($_REQUEST['desc']);
+    $aErrores['desc']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['desc'], 15, 1, 1);
     $aErrores['codUsuario']= validacionFormularios::comprobarMaxTamanio($_REQUEST['codUsuario'],15);
     $aErrores['password']= validacionFormularios::validarPassword($_REQUEST['password'], 4, 1);
     foreach ($aErrores as $key => $value) {
@@ -22,7 +21,8 @@ if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
             $entrada=false;
         }
     }
-    if(!$entrada){
+    if($entrada==true){
+    UsuarioPDO::altaUsuario($_REQUEST["codUsuario"], $_REQUEST['desc'],$_REQUEST['password']);
     $usuario= UsuarioPDO::validarUsuario($_REQUEST["codUsuario"], $_REQUEST['password']);
     if(is_object($usuario)){
         UsuarioPDO::registrarUltimaConexion($usuario->getCodUsuario());
@@ -38,10 +38,5 @@ if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
         header("Location: ./view/Layout.php");
     }else{
         header("Location: ./view/Layout.php");
-}
     }
-}else{
-    header("Location: ./view/Layout.php");
-}
-
-
+    }

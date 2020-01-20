@@ -8,3 +8,5 @@
     <input type="submit" value="Enviar" name="Enviar">
     <input type="button" name="atras" value="atras" onclick="location='Layout.php'">
 </form>
+<?php
+$_SESSION["pagina"]="registro";
