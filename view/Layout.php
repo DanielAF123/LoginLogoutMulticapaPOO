@@ -12,12 +12,21 @@ session_start();
         include_once '../config/ConfAplicación.php';
         include_once '../model/Usuario.php';
         if(isset($_SESSION[USUARIOA])){
-            if($_SESSION["pagina"]=="inicio"){
+            if(isset($_REQUEST["pagina"])){
+            if($_REQUEST["pagina"]=="inicio"){
                 include_once './vInicio.php';
             }
+            }
+            if(isset($_REQUEST["pagina"])){
+            if($_REQUEST["pagina"]=="editar"){
+                include_once './vMiCuenta.php';
+            }
+            }
         }else{
-            if(isset($_REQUEST["pagina"]) && $_REQUEST["pagina"]=="registro"){
+            if(isset($_REQUEST["pagina"])){
+            if($_REQUEST["pagina"]=="registro"){
                 include_once './vRegistro.php';
+            }
             }else{
             include_once './vlogin.php';
             }

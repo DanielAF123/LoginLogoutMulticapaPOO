@@ -11,7 +11,10 @@ include_once './model/UsuarioPDO.php';
 include_once './config/ConfDB.php';
 include_once './core/validacionFormularios.php';
 if(isset($_SESSION[USUARIOA])){
-if($_SESSION["pagina"]==inicio){
+    if($_REQUEST['cerrar']=="cerrar"){
+        include_once './controller/cCerrarSesion.php';
+    }
+if($_REQUEST["pagina"]==inicio){
     include_once './controller/cInicio.php';
 }
 }else{

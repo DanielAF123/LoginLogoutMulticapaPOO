@@ -5,6 +5,6 @@
  * and open the template in the editor.
  */
     if(isset($_SESSION[USUARIOA])){
-    header('Location: view/Layout.php');
+    header('Location: view/Layout.php?pagina=inicio');
     }
     

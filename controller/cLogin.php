@@ -28,14 +28,13 @@ if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
         UsuarioPDO::registrarUltimaConexion($usuario->getCodUsuario());
         $usuarioS=$usuario;
         $_SESSION[USUARIOA]=$usuarioS;
-        $_SESSION["pagina"]="inicio";
         if($usuario->getContadorAccesos()==1){
         $contador="Primera conexion"."<br>";
         }else{
         $contador=$usuario->getContadorAccesos();
         }
         $_SESSION["datos"]=[$usuario->getCodUsuario(),$usuario->getDescUsuario(),$usuario->getUltimaConexion(),$contador];
-        header("Location: ./view/Layout.php");
+        header("Location: ./view/Layout.php?pagina=inicio");
     }else{
         header("Location: ./view/Layout.php");
 }
