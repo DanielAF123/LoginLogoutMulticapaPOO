@@ -19,7 +19,7 @@ session_start();
             if(isset($_REQUEST["pagina"]) && $_REQUEST["pagina"]=="registro"){
                 include_once './vRegistro.php';
             }else{
-        include_once './vlogin.php';
+            include_once './vlogin.php';
             }
         }
     ?>

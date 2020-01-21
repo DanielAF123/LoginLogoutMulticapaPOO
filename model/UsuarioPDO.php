@@ -25,8 +25,7 @@ class UsuarioPDO{
         DBPDO::ejecutaConsulta("UPDATE T01_Usuario SET T01_FechaHoraUltimaConexion=? WHERE T01_CodUsuario=?", [$valor,$usuario]);
     }
     public function altaUsuario($codUsuario,$desc,$password){
-        if(is_object(UsuarioPDO::validarUsuario($codUsuario,$password))){
-       return DBPDO::ejecutaConsulta("INSERT INTO T01_Usuario (T01_CodUsuario, T01_DescUsuario, T01_Password) Values(?,?,?)",[$codUsuario,$desc,$password]);
-        }
+        $contraseña= hash("sha256",$codUsuario.$password);
+       return DBPDO::ejecutaConsulta("INSERT INTO T01_Usuario (T01_CodUsuario, T01_DescUsuario, T01_Password) Values(?,?,?)",[$codUsuario,$desc,$contraseña]);
     }
 }

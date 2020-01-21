@@ -19,8 +19,7 @@ class DBPDO{
         $consulta=$miDB->prepare($sql);
         $consulta->execute($parametros);
     } catch (PDOException $exp) {
-        echo $exp->getMessage();
-        echo $exp->getCode();
+        $consulta=$exp->getMessage().$exp->getCode();
     }
      return $consulta;
 }

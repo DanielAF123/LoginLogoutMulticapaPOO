@@ -7,36 +7,33 @@
  */
 if(isset($_SESSION[USUARIOA])){
     $_SESSION["pagina"]="inicio";
-    header('Location: ./view/Layout.php');
+   header('Location: ./view/Layout.php?inicio=o');
 }
+    if(isset($_REQUEST["Enviar"])){
+    unset($_SESSION['pagina']);
     $entrada=true;
     $aErrores=[];
     $aErrores['codUsuario']= validacionFormularios::comprobarNoVacio($_REQUEST['codUsuario']);
     $aErrores['desc']= validacionFormularios::comprobarNoVacio($_REQUEST['desc']);
     $aErrores['desc']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['desc'], 15, 1, 1);
     $aErrores['codUsuario']= validacionFormularios::comprobarMaxTamanio($_REQUEST['codUsuario'],15);
-    $aErrores['password']= validacionFormularios::validarPassword($_REQUEST['password'], 4, 1);
+    $aErrores['password']= validacionFormularios::validarPassword($_REQUEST['password'], 3, 1);
     foreach ($aErrores as $key => $value) {
         if($value!=NULL){
             $entrada=false;
         }
     }
+    }else{
+        $entrada=false;
+    }
     if($entrada==true){
-    UsuarioPDO::altaUsuario($_REQUEST["codUsuario"], $_REQUEST['desc'],$_REQUEST['password']);
+    $r=UsuarioPDO::altaUsuario($_REQUEST["codUsuario"], $_REQUEST['desc'],$_REQUEST['password']);
     $usuario= UsuarioPDO::validarUsuario($_REQUEST["codUsuario"], $_REQUEST['password']);
     if(is_object($usuario)){
-        UsuarioPDO::registrarUltimaConexion($usuario->getCodUsuario());
-        $usuarioS=$usuario;
-        $_SESSION[USUARIOA]=$usuarioS;
-        $_SESSION["pagina"]="inicio";
-        if($usuario->getContadorAccesos()==1){
-        $contador="Primera conexion"."<br>";
-        }else{
-        $contador=$usuario->getContadorAccesos();
-        }
-        $_SESSION["datos"]=[$usuario->getCodUsuario(),$usuario->getDescUsuario(),$usuario->getUltimaConexion(),$contador];
         header("Location: ./view/Layout.php");
     }else{
-        header("Location: ./view/Layout.php");
+        header("Location: ./view/Layout.php?pagina=registro");
     }
+    }else{
+        header("Location: ./view/Layout.php?pagina=registro");
     }

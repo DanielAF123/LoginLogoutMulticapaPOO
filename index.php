@@ -15,9 +15,11 @@ if($_SESSION["pagina"]==inicio){
     include_once './controller/cInicio.php';
 }
 }else{
-    if($_SESSION["pagina"]=="registro"){
+    if(isset($_REQUEST["pagina"]) && $_REQUEST["pagina"]=="registro"){
         include_once './controller/cRegistro.php';
-    }
+    }else{
     include_once './controller/cLogin.php';
+    }
+    
 }
 
