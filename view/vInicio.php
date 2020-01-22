@@ -4,17 +4,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-    if(isset($_REQUEST["cerrar"])){
-        session_destroy();
-        header('Location: Layout.php');
-    }
     if(!isset($_SESSION[USUARIOA])){
     header('Location: Layout.php');
     }
 ?>
 <!--<a href="detalle.php"><button>Detalle</button></a>-->
 <a href="Layout.php?pagina=editar"><button>Editar perfil</button></a>
-<a href="../index.php?cerrar=cerrar"><button>Salir</button></a><br>
+<a href="../index.php?pagina=cerrar"><button>Salir</button></a><br>
 <?php
     echo "Descripción usuario ".$_SESSION['datos'][0]."<br>";
     echo "Descripción usuario ".$_SESSION['datos'][1]."<br>";

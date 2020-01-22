@@ -28,4 +28,13 @@ class UsuarioPDO{
         $contraseña= hash("sha256",$codUsuario.$password);
        return DBPDO::ejecutaConsulta("INSERT INTO T01_Usuario (T01_CodUsuario, T01_DescUsuario, T01_Password) Values(?,?,?)",[$codUsuario,$desc,$contraseña]);
     }
+    public function modificarContraseña($codUsuario,$password){
+        $contraseña= hash("sha256",$codUsuario.$password);
+        $sql="UPDATE T01_Usuario SET T01_Password=? WHERE T01_CodUsuario=?";
+        return DBPDO::ejecutaConsulta($sql,[$password,$codUsuario]);
+    }
+    public function modificarDesc($codUsuario,$desc){
+        $sql="UPDATE T01_Usuario SET T01_DescUsuario=? WHERE T01_CodUsuario=?";
+        return DBPDO::ejecutaConsulta($sql,[$desc,$codUsuario]);
+    }
 }

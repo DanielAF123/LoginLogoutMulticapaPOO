@@ -16,8 +16,6 @@ session_start();
             if($_REQUEST["pagina"]=="inicio"){
                 include_once './vInicio.php';
             }
-            }
-            if(isset($_REQUEST["pagina"])){
             if($_REQUEST["pagina"]=="editar"){
                 include_once './vMiCuenta.php';
             }

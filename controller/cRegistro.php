@@ -6,11 +6,9 @@
  * and open the template in the editor.
  */
 if(isset($_SESSION[USUARIOA])){
-    $_SESSION["pagina"]="inicio";
-   header('Location: ./view/Layout.php?inicio=o');
+   header('Location: ./view/Layout.php');
 }
     if(isset($_REQUEST["Enviar"])){
-    unset($_SESSION['pagina']);
     $entrada=true;
     $aErrores=[];
     $aErrores['codUsuario']= validacionFormularios::comprobarNoVacio($_REQUEST['codUsuario']);

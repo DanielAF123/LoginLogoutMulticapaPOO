@@ -7,7 +7,6 @@
  */
     
 if(isset($_SESSION[USUARIOA])){
-    $_SESSION["pagina"]="inicio";
     header('Location: ./view/Layout.php');
 }
 
