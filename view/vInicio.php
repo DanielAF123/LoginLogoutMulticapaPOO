@@ -8,7 +8,6 @@
     header('Location: Layout.php');
     }
 ?>
-<!--<a href="detalle.php"><button>Detalle</button></a>-->
 <a href="Layout.php?pagina=editar"><button>Editar perfil</button></a>
 <a href="../index.php?pagina=cerrar"><button>Salir</button></a><br>
 <?php

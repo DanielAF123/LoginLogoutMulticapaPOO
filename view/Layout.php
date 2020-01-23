@@ -19,6 +19,9 @@ session_start();
             if($_REQUEST["pagina"]=="editar"){
                 include_once './vMiCuenta.php';
             }
+            if($_REQUEST["pagina"]=="borrarC"){
+                include_once './vBorrarCuenta.php';
+            }
             }
         }else{
             if(isset($_REQUEST["pagina"])){

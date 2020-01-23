@@ -1,4 +1,5 @@
 <?php
+include_once './model/Usuario.php';
 session_start();
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -6,7 +7,6 @@ session_start();
  * and open the template in the editor.
  */
 include_once './config/ConfAplicación.php';
-include_once './model/Usuario.php';
 include_once './model/UsuarioPDO.php';
 include_once './config/ConfDB.php';
 include_once './core/validacionFormularios.php';
@@ -18,11 +18,11 @@ if(isset($_SESSION[USUARIOA])){
 if($_REQUEST["pagina"]=='inicio'){
     include_once './controller/cInicio.php';
 }
-if($_REQUEST["pagina"]=="editar"){
-    include_once './controller/cMiCuenta.php?pagina=editar';
+if($_REQUEST["pagina"]=='borrarC'){
+    include_once './controller/cBorrarCuenta.php';
 }
-if($_REQUEST["pagina"]=="contra"){
-    include_once './controller/cMiCuenta.php?pagina=contra';
+if($_REQUEST["pagina"]=="editar" || $_REQUEST["pagina"]=="contra"){
+    include_once './controller/cMiCuenta.php';
 }
     }
 }else{

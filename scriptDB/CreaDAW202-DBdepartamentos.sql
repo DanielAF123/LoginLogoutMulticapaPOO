@@ -23,7 +23,7 @@
         T01_CodUsuario varchar(15) PRIMARY KEY,
         T01_DescUsuario varchar(250) NOT null,
         T01_Password varchar(64) NOT null,
-        T01_NumAccesos INTEGER(10) default 1,
+        T01_NumAccesos INTEGER(10) default 0,
         T01_Perfil enum('administrador', 'usuario') default 'usuario', -- Valor por defecto usuario
         T01_FechaHoraUltimaConexion timestamp --Revisar o cambiar a int--
     );

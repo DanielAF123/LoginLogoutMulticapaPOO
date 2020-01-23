@@ -24,14 +24,13 @@ if(isset($_REQUEST["codUsuario"]) && isset($_REQUEST["password"])){
     if(!$entrada){
     $usuario= UsuarioPDO::validarUsuario($_REQUEST["codUsuario"], $_REQUEST['password']);
     if(is_object($usuario)){
-        UsuarioPDO::registrarUltimaConexion($usuario->getCodUsuario());
-        $usuarioS=$usuario;
-        $_SESSION[USUARIOA]=$usuarioS;
-        if($usuario->getContadorAccesos()==1){
+        UsuarioPDO::registrarUltimaConexion($usuario->getCodUsuario(),$usuario->getContadorAccesos());
+        $contador=$usuario->getContadorAccesos()+1;
+        $usuario->setContadorAccesos($contador+1);
+        if($contador==1){
         $contador="Primera conexion"."<br>";
-        }else{
-        $contador=$usuario->getContadorAccesos();
         }
+        $_SESSION[USUARIOA]=$usuario;
         $_SESSION["datos"]=[$usuario->getCodUsuario(),$usuario->getDescUsuario(),$usuario->getUltimaConexion(),$contador];
         header("Location: ./view/Layout.php?pagina=inicio");
     }else{

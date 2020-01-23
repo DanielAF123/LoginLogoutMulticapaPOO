@@ -15,7 +15,7 @@ if(isset($_SESSION[USUARIOA])){
     $aErrores['desc']= validacionFormularios::comprobarNoVacio($_REQUEST['desc']);
     $aErrores['desc']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['desc'], 15, 1, 1);
     $aErrores['codUsuario']= validacionFormularios::comprobarMaxTamanio($_REQUEST['codUsuario'],15);
-    $aErrores['password']= validacionFormularios::validarPassword($_REQUEST['password'], 3, 1);
+    $aErrores['password']= validacionFormularios::comprobarMinTamanio($_REQUEST["password"], 4);
     foreach ($aErrores as $key => $value) {
         if($value!=NULL){
             $entrada=false;
