@@ -6,6 +6,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="../webroot/css/css.css">
     </head>
     <body>
         <?php
@@ -33,6 +34,9 @@ session_start();
             }
         }
     ?>
+        <footer> 
+            <a href="../../../../../">Daniel Alcala Fernandez</a><a target="_blank" href="https://github.com/DanielAF123/LoginLogoutMulticapaPOO">GitLab</a>
+        </footer>
     </body>
 </html>
 
