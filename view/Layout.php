@@ -35,6 +35,7 @@ session_start();
         }
     ?>
         <footer> 
+            <a href="../doc/Tema2.pdf" target="_black">Herramientas utilizadas</a>
             <a href="../../../../../">Daniel Alcala Fernandez</a><a target="_blank" href="https://github.com/DanielAF123/LoginLogoutMulticapaPOO">GitLab</a>
         </footer>
     </body>
