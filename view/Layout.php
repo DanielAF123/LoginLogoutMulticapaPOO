@@ -12,7 +12,9 @@ session_start();
         <?php
         include_once '../config/ConfAplicación.php';
         include_once '../model/Usuario.php';
+        //Comprueba que existe una sesion abierta de un usuario
         if(isset($_SESSION[USUARIOA])){
+            //Comprueba que existe una pagina a la que incluir y a que pagina incluir
             if(isset($_REQUEST["pagina"])){
             if($_REQUEST["pagina"]=="inicio"){
                 include_once './vInicio.php';
@@ -25,6 +27,7 @@ session_start();
             }
             }
         }else{
+            //Si no existe el usuario en la sesion comprueba a que pagina tiene que incluir dependidendo de que variables reciba 
             if(isset($_REQUEST["pagina"])){
             if($_REQUEST["pagina"]=="registro"){
                 include_once './vRegistro.php';

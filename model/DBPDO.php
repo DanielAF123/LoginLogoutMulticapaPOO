@@ -7,6 +7,14 @@
  */
 
 class DBPDO{
+    /**
+     * Ejecuta una consulta que recibe con los parametros recibidos
+     * 
+     * Los parametros tienen que ser un array
+     * @param type $sql sql a ejecutar
+     * @param type $parametros parametros a ejecutar
+     * @return El objeto que se consigue tras ejecutar la sentencia objeto PDOStatement
+     */
     public static function ejecutaConsulta($sql,$parametros){
         try{
     $miDB= new PDO(URL, USUARIO, CONTRASEÑA);

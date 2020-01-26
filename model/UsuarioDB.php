@@ -6,5 +6,10 @@
  * and open the template in the editor.
  */
 interface UsuarioDB{
+    /**
+     * Valida un usuario
+     * @param type $codUsuario codigo de usuario
+     * @param type $password contraseña del usuario
+     */
     public function validarUsuario($codUsuario,$password);
 }

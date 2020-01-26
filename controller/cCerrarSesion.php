@@ -5,5 +5,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//destruye la sesion y redirige al login
  session_destroy();
  header('Location: view/Layout.php');

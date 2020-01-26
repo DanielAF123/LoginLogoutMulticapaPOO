@@ -5,9 +5,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//Comprueba que existe el usuario
 if(isset($_SESSION[USUARIOA])){
-   header('Location: ./view/Layout.php');
+   header('Location: ./view/Layout.php?pagina=inicio');
 }
+//Comprueba que hemos presionado enviar y valida los datos
     if(isset($_REQUEST["Enviar"])){
     $entrada=true;
     $aErrores=[];
@@ -24,6 +26,7 @@ if(isset($_SESSION[USUARIOA])){
     }else{
         $entrada=false;
     }
+    //Ejecuta el query para añadir al usuario y comprobar que se añadio correctamente
     if($entrada==true){
     $r=UsuarioPDO::altaUsuario($_REQUEST["codUsuario"], $_REQUEST['desc'],$_REQUEST['password']);
     $usuario= UsuarioPDO::validarUsuario($_REQUEST["codUsuario"], $_REQUEST['password']);
